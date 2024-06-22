@@ -13,26 +13,30 @@ func main() {
 	// 現在時刻をUNIX時間にしたものを種とする
 	rand.Seed(time.Now().Unix())
 
+	// TODO: draw関数を呼ぶ
+	draw()
+}
 	// TODO: 以下の処理をdraw関数として定義する
 
-	// 0から99までの間で乱数を生成する
-	num := rand.Intn(100)
+	func draw() {
 
-	// 変数numが0〜79のときは"ノーマル"、
-	// 80〜94のときは"R"、95〜98のときは"SR"、
-	// それ以外のときは"XR"と表示する
-	switch {
-	case num < 80:
-		fmt.Println("ノーマル")
-	case num < 95:
-		fmt.Println("R")
-	case num < 99:
-		fmt.Println("SR")
-	default:
-		fmt.Println("XR")
+		// 0から99までの間で乱数を生成する
+		num := rand.Intn(100)
+		
+		// 変数numが0〜79のときは"ノーマル"、
+		// 80〜94のときは"R"、95〜98のときは"SR"、
+		// それ以外のときは"XR"と表示する
+		switch {
+		case num < 80:
+			fmt.Println("ノーマル")
+		case num < 95:
+			fmt.Println("R")
+		case num < 99:
+			fmt.Println("SR")
+		default:
+			fmt.Println("XR")
+		}
+		
+		//  -- ここまで
 	}
 
-	//  -- ここまで
-
-	// TODO: draw関数を呼ぶ
-}
