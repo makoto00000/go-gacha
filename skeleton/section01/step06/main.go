@@ -20,4 +20,11 @@ func main() {
 	// TODO: 変数numが0〜79のときは"ノーマル"、
 	// 80〜94のときは"R"、95〜98のときは"SR"、
 	// それ以外のときは"XR"と表示する
+	if num >= 0 && num <= 79 {
+		fmt.Println("ノーマル")
+		} else if num >= 95 && num <= 98 {
+		fmt.Println("R")
+		} else {
+		fmt.Println("XR")
+	}
 }

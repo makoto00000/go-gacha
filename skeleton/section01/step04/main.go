@@ -19,4 +19,11 @@ func main() {
 
 	// TODO: 変数numが0のときに"アタリ"と表示し
 	// そうでない場合は"ハズレ"と表示する
+	if(num == 0) {
+		fmt.Println(num);
+		fmt.Println("アタリ");
+		} else {
+		fmt.Println(num);
+		fmt.Println("ハズレ");
+	}
 }

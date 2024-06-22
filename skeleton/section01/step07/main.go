@@ -15,12 +15,13 @@ func main() {
 	rand.Seed(time.Now().Unix())
 
 	// TODO: 変数iを1から11まで増やしていき処理を10回繰り返す
-
+	for i := 1; i <= 11; i++{
+		
 		// 0から99までの間で乱数を生成する
 		num := rand.Intn(100)
-
+		
 		fmt.Printf("%d回目 ", i)
-
+		
 		// 変数numが0〜79のときは"ノーマル"、
 		// 80〜94のときは"R"、95〜98のときは"SR"、
 		// それ以外のときは"XR"と表示する
@@ -34,4 +35,5 @@ func main() {
 		default:
 			fmt.Println("XR")
 		}
+	}
 }
