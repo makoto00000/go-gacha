@@ -1,3 +1,3 @@
-module github.com/gohandson/gacha-ja
+module step04
 
 go 1.15
