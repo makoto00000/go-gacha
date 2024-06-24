@@ -10,7 +10,7 @@ import (
 	"regexp"
 	"strconv"
 
-	"github.com/gohandson/gacha-ja/gacha"
+	"step01/gacha"
 )
 
 var (
