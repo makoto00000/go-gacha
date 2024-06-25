@@ -1,5 +1,3 @@
-module github.com/gohandson/gacha-ja
+module step01
 
 go 1.15
-
-require github.com/tenntenn/sqlite v1.0.2

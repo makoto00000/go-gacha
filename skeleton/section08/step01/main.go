@@ -10,7 +10,7 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/gohandson/gacha-ja/gacha"
+	"step01/gacha"
 )
 
 var tmpl = template.Must(template.New("index").Parse(`<!DOCTYPE html>

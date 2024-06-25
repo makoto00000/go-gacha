@@ -12,7 +12,7 @@ import (
 	"strconv"
 
 	"cloud.google.com/go/datastore"
-	"github.com/gohandson/gacha-ja/gacha"
+	"step02/gacha"
 	"google.golang.org/api/iterator"
 )
 
@@ -101,8 +101,9 @@ func run() error {
 func saveResult(client *datastore.Client, card *gacha.Card) error {
 	ctx := context.Background()
 	// TODO: Kind名を自分のGitHubアカウントを付加したものに変える
-	key := datastore.IncompleteKey("YourGitHubAccount-Results", nil)
+	key := datastore.IncompleteKey("Card", nil)
 	// TODO: client.Putメソッドで追加する
+	_, err := client.Put(ctx, key, card)
 
 	if err != nil {
 		return fmt.Errorf("結果の保存:%w", err)
@@ -113,11 +114,12 @@ func saveResult(client *datastore.Client, card *gacha.Card) error {
 func getResults(client *datastore.Client, limit int) ([]*gacha.Card, error) {
 	results := make([]*gacha.Card, 0, limit)
 	// TODO: Kind名を自分のGitHubアカウントを付加したものに変える
-	q := datastore.NewQuery("YourGitHubAccount-Results") // クエリの作成
+	q := datastore.NewQuery("Card") // クエリの作成
 	q = q.Limit(cap(results))          // リミット
 	for it := client.Run(context.Background(), q); ; {
 		var card gacha.Card
 		// TODO: cardのポインタをit.Nextメソッドに渡してデータを読み込む
+		_, err := it.Next(&card)
 
 		if err == iterator.Done {
 			break
@@ -126,6 +128,7 @@ func getResults(client *datastore.Client, limit int) ([]*gacha.Card, error) {
 			return nil, fmt.Errorf("結果の取得:%w", err)
 		}
 		// TODO: 読み込んだデータをresultsに追加する
+		results = append(results, &card)
 
 	}
 
